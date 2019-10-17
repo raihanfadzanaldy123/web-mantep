@@ -16,10 +16,21 @@ $diri = new Diri();
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
             <a class="navbar-brand" href="#"><font color="white" >Angsam</font></a>
-            <a class="navbar-brand" href="#" align="right"><font color="white">Logout</font></a>
             </nav>  
     </header>
 
+
+<?php 
+        foreach($diri->show($_GET['id']) as $data)
+        {
+            $id             = $data['id'];
+            $nama           = $data['nama'];
+            $alamat         = $data['alamat'];
+            $tgl_lahir      = $data['tgl_lahir'];
+            $jenis_kelamin  = $data['jenis_kelamin'];
+            $agama          = $data['agama'];
+        }
+    ?>
       <div class="container">
         <div class="row justify-content-center" style="padding:20px;">
             <div class="col-md-10">
@@ -34,7 +45,7 @@ $diri = new Diri();
                                  </div>
                                       <div class="form-group">
                                          <label>Alamat</label>
-                                         <textarea name="alamat" class="form-control" rows="5" value="<?= $alamat; ?>" readonly></textarea>
+                                         <textarea name="alamat" class="form-control" rows="5" value=""<?= $alamat; ?> readonly></textarea>
                                       </div>
 
                                     <div class="form-group">

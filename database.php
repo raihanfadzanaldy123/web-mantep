@@ -28,7 +28,7 @@
         //menambah data
         public function create($nama, $alamat, $tgl_lahir, $jenis_kelamin, $agama, $umur){
             mysqli_query($this->koneksi,"insert into biodata values
-            ('','$nama','$alamat','$tgl_lahir','$jenis_kelamin','$agama','$umur')");
+            (null,'$nama','$alamat','$tgl_lahir','$jenis_kelamin','$agama','$umur')");
         }
 
           // Menampilkan Data Berdasarkan ID

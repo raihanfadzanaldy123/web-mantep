@@ -11,7 +11,6 @@
 <header>
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
         <a class="navbar-brand" href="#"><font color="white" >Angsam</font></a>
-        <a class="navbar-brand" href="#" align="right"><font color="white">Logout</font></a>
         </nav>  
 </header>
 
@@ -19,7 +18,7 @@
         <div class="row justify-content-center" style="padding:20px;">
             <div class="col-md-10">
                 <div class="card ">
-                    <div class="card-header" align="center" >Data Diri</div>
+                    <div class="card-header" align="center"><h5><kbd>Data Diri</kbd></h5></div>
                          <div class="card-body">
                              <form action="proses.php?aksi=tambah" method="post">
                                  <div class="form-group">

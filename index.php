@@ -9,6 +9,8 @@ $db = new Database();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+
     <title>CRUD</title>
 </head>
 <body>
@@ -16,16 +18,17 @@ $db = new Database();
 <header>
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
         <a class="navbar-brand" href="#"><font color="white" >Angsam</font></a>
-        <a class="navbar-brand" href="#" align="right"><font color="white">Logout</font></a>
         </nav>  
 </header>
 
 <!-- // body -->
 
 
-     <center>Biodata</center>    
-    <a href="/biodatax/create.php">Input Biodata</a>
-    <table class="table table-dark" border="1">
+     <div class="card-header" align="center" ><a>BIODATAX</a></div>   
+    <a href="/biodatax/create.php"><h5><kbd>INPUTKAN DATA LAGI</kbd></h5></a><br>
+
+
+    <table class="table table-dark" border="1" id = "ang">
      <thead>
         <tr>
             <th scope="col">No</th>
@@ -35,6 +38,7 @@ $db = new Database();
             <th scope="col">Jenis kelamin</th>
             <th scope="col">Agama</th>
             <th scope="col">Umur</th>
+            <th scope="col" style="text-align : center;">Aksi</th>
         </tr>
      </thead>
      <tbody>
@@ -43,23 +47,36 @@ $db = new Database();
         $no =1; 
         foreach ($diri->index() as $data) {      ?>
         <tr>
-            <th scope="row"><?= $no++;       ?></th>
+            <td scope="row"><?= $no++;       ?></td>
             <td><?= $data['nama'];           ?></td>
             <td><?= $data['alamat'];         ?></td>
             <td><?= $data['tgl_lahir'];      ?></td>
             <td><?= $data['jenis_kelamin'];  ?></td>
             <td><?= $data['agama'];          ?></td>
             <td><?= $data['umur'];           ?></td>
-            <td></td>
-            <td><a href="show.php?id=   <?= $data['id'];    ?> &aksi=show">Show</a></td>
-            <td><a href="edit.php?id=   <?= $data['id'];    ?> &aksi=edit">Edit</a></td>
-            <td><a href="proses.php?id= <?= $data['id'];    ?> &aksi=delete"
-            oneclick="return confirm(" yakin akan menghapus data?");">Delete</a></td>
+            
+            <td><a href="show.php?id=   <?= $data['id'];    ?> &aksi=show" class=" btn btn-outline-primary ">Show</a>
+            <a href="edit.php?id=       <?= $data['id'];    ?> &aksi=edit" class=" btn btn-outline-info ">Edit</a>
+            <a href="proses.php?id=     <?= $data['id'];    ?> &aksi=delete"oneclick="return confirm(" yakin akan menghapus data?");" class=" btn btn-outline-danger ">Delete</a></td>
 
         </tr>
-     </tbody>
+     
         <?php }  ?>
+    </tbody>
     </table> 
+ </div>
+
+    
 </body>
+    <script src="assets/js/jquery"></script>
+    <script  src="assets/js/jquery.min.js"></script>
+    <script  src="assets/js/bootstrap.bundle.js"></script>
+    <script  src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>$(document).ready(function() {
+        $('#ang').DataTable();  
+    } );</script>
 </html>
 

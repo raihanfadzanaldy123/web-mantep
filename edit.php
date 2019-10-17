@@ -27,7 +27,6 @@ $diri = new Diri();
         <header>
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
         <a class="navbar-brand" href="#"><font color="white" >Angsam</font></a>
-        <a class="navbar-brand" href="#" align="right"><font color="white">Logout</font></a>
         </nav>  
         </header>
 
@@ -45,7 +44,7 @@ $diri = new Diri();
                                  </div>
                                       <div class="form-group">
                                          <label>Alamat</label>
-                                         <textarea name="alamat" class="form-control" rows="5" value="<?= $alamat; ?>"></textarea>
+                                         <textarea name="alamat" class="form-control" rows="5" value=""><?= $alamat; ?></textarea>
                                       </div>
 
                                     <div class="form-group">
@@ -57,24 +56,26 @@ $diri = new Diri();
                                         <label>Jenis Kelamin</label>&nbsp; &nbsp;
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="customRadioInline1" name="jenis_kelamin" 
-                                            value="Laki-laki" class="custom-control-input" 
-                                            <?php if (isset($jenis_kelamin) && $jenis_kelamin=="Laki-laki") echo "Skuyy";?>>
+                                            value="Laki-laki" <?php if($jenis_kelamin == "Laki-laki") {?>checked <?php } ?>
+                                            class="custom-control-input" >
                                             <label class="custom-control-label" for="customRadioInline1">Laki-laki</label>
                                         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                                         <div class="form-check form-check-inline custom-radio">
                                             <input class="custom-control-input" id="customRadioInline2" type="radio" name="jenis_kelamin" 
-                                            <?php if (isset($jenis_kelamin) && $jenis_kelamin=="Perempuan") echo "ngabss";?> value="Perempuan">
+                                             value="Perempuan" <?php if($jenis_kelamin == "Perempuan") {?>checked <?php } ?>
+                                             class="custom-control-input" >
                                             <label class="custom-control-label" for="customRadioInline2">Perempuan</label>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                             <label>Agama</label>
-                                            <select name="agama">
-                                                <option value="<?= $agama; ?>">Islam</option>
-                                                <option value="<?= $agama; ?>">Kristen</option>
-                                                <option value="<?= $agama; ?>">Hindu</option>
-                                                <option value="<?= $agama; ?>">Budhha</option>
+                                            <select name="agama" value="<?= $agama; ?>" class="form-control">
+                                                <option value="Islam"   <?php if($agama == "Islam")   {?>selected <?php } ?>>Islam</option>
+                                                <option value="Kristen" <?php if($agama == "Kristen") {?>selected <?php } ?>>Kristen</option>
+                                                <option value="Hindu"   <?php if($agama == "Hindu")   {?>selected <?php } ?>>Hindu</option>
+                                                <option value="Budhha"  <?php if($agama == "Budhha")  {?>selected <?php } ?>>Budhha</option>
                                             </select>
                                     </div>
                                     <div class="form-group">
